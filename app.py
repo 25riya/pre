@@ -10,8 +10,8 @@ app.config['MAIL_SERVER']='smtp.gmail.com'
 app.config['MAIL_PORT']=587
 
 app.config['MAIL_USE_TLS']=True
-app.config['MAIL_USERNAME']='hotelrjbooking143@gmail.com'
-app.config['MAIL_PASSWORD']='nrnffujttdjyzqro'
+app.config['MAIL_USERNAME']='bookingrj9@gmail.com'
+app.config['MAIL_PASSWORD']='fjywulfehhnrpcod'
 
 mail=Mail(app)
 
@@ -30,7 +30,7 @@ def access():
         msg=request.form['comt']
         mssg=Message(
             'New Order Submit',
-            sender="hotelrjbooking143@gmail.com",
+            sender="bookingrj9@gmail.com",
             recipients=[email,'25riyaj2003@gmail.com'],
             body=f'Name:{name}\nEmail:{email}\nDate:{date}\nTable:{person}\nYour Specail Request:{msg}'
             
@@ -39,10 +39,7 @@ def access():
         
 
         
-        con=mysql.connector.connect(host='localhost',user='root',database='web',password='W7301@jqir#')
-        cur=con.cursor()
-        cur.execute("insert into frm(name,email,date,per,msg) values('"+name+"','"+email+"','"+date+"','"+person+"','"+msg+"')")
-        con.commit()
+        
     
     
     
@@ -92,7 +89,7 @@ def acc():
         msg=request.form['comr']
         mssg=Message(
             'New Query Generated',
-            sender="hotelrjbooking143@gmail.com",
+            sender="bookingrj9@gmail.com",
             recipients=[email,'25riyaj2003@gmail.com'],
             body=f'Name:{name}\nEmail:{email}\nDate:{date}\nSubject:{subject}\nYour Msg:{msg}'
             
@@ -100,9 +97,7 @@ def acc():
         mail.send(mssg)
         return redirect("/contact")
     
-if __name__=='__main__':
-     app.run(debug=True)
-    
+
     
     
     
